@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("TestSystem");
         ActorRef parentActor = actorSystem.actorOf(Props.create(ParentActor.class), "parentActor");
-        parentActor.tell("good", ActorRef.noSender());
+        parentActor.tell("bad", ActorRef.noSender());
+//        parentActor.tell("good", ActorRef.noSender());
     }
 }
