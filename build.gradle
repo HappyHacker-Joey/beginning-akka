@@ -1,0 +1,27 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+
+group 'org.hanbit'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.typesafe.akka:akka-actor_2.12:2.6.0-M1'
+    testCompile 'com.typesafe.akka:akka-testkit_2.12:2.6.0-M1'
+    testCompile 'junit:junit:4.12'
+}
+
+run {
+    if (project.hasProperty("appArgs")) {
+        mainClassName = "org.study." + appArgs + ".Main"
+    }else {
+        mainClassName = "org.study.pingpong.Main"
+    }
+}
